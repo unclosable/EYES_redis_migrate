@@ -1,13 +1,13 @@
 from Reader.migrate import MigrateClass as MC
 
 __filePath = '/home/deploy'
-__redisHost = '10.230.4.31'
-__redisPort = '6379'
+# __redisHost = '10.230.4.31'
+# __redisPort = '6379'
 
 # 测试库
 # __filePath = '/Users/zhengwei/Desktop'
-# __redisHost = '10.3.47.20'
-# __redisPort = '10000'
+__redisHost = '10.3.47.20'
+__redisPort = '10000'
 
 collect = MC(filePath=__filePath,
              setKey='eyes_collect',
