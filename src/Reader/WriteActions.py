@@ -1,9 +1,15 @@
 from Reader.migrate import MigrateClass as MC
 
 __filePath = '/home/deploy'
-__redisHost = 'redis.rfddc.com'
-__redisPort = '8003'
-__password = 'redis_001_004'
+# __redisHost = 'redis.rfddc.com'
+# __redisPort = '8003'
+# __password = 'redis_001_004'
+
+# 测试库
+# __filePath = '/Users/zhengwei/Desktop'
+__redisHost = '10.3.47.20'
+__redisPort = '10000'
+__password = None
 
 collect = MC(filePath=__filePath,
              setKey='eyes_collect',
