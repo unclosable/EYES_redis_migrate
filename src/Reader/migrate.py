@@ -60,8 +60,13 @@ class MigrateClass(object):
         datas = file.readDatas()
         index = 0
         for key in datas:
-            self.__redisClient__.sadd(self.__setKey__, key)
-            self.__redisClient__.hmset(self.__mapkey_Prefix__ + key, datas[key])
+            try:
+                self.__redisClient__.sadd(self.__setKey__, key)
+                self.__redisClient__.hmset(self.__mapkey_Prefix__ + key, datas[key])
+            except:
+                print('失败')
+                print(key)
+                print(datas[key])
             index += 1
         print(str(index) + '条写入数据《＝' + self.__filePath__ + '/' + self.__setKey__ + '.xml')
 

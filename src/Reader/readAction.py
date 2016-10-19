@@ -4,7 +4,7 @@ from fileHandler.XMLFileReader import FileReaderClass
 
 
 def redData():
-    redisClient = redis.Redis(host='10.3.47.20', port='10000')
+    redisClient = redis.Redis(host='10.3.47.20', port='10000',password='')
 
     setKey = 'eyes_collect'
 
@@ -55,4 +55,4 @@ def __clean__():
 if __name__ == "__main__":
     # writeData()
     redData()
-    __clean__()
+    # __clean__()
