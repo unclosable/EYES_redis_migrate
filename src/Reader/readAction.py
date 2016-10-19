@@ -4,7 +4,7 @@ from fileHandler.XMLFileReader import FileReaderClass
 
 
 def redData():
-    redisClient = redis.Redis(host='10.3.47.20', port='10000',password='')
+    redisClient = redis.Redis(host='10.3.47.20', port='10000', password='')
 
     setKey = 'eyes_collect'
 
@@ -43,16 +43,26 @@ def writeData():
 def __clean__():
     redisClient = redis.Redis(host='10.3.47.20', port='10000')
 
-    setKey = 'eyes_collect'
+    setKey = 'EYES_unfinished_ProcessStandardsActionSetKey_zvZskZkNgUv9gam0'
 
     set = redisClient.smembers(setKey)
 
     for key in set:
+        print(key)
         redisClient.delete(key)
     redisClient.delete(setKey)
 
 
+def __test__():
+    bkey = b'com.xiaojiuwo.models.ProcessStandardsAction[waybillId=11610186309832]'
+    key = 'com.xiaojiuwo.models.ProcessStandardsAction[waybillId=11610186309832]'
+    redisClient = redis.Redis(host='10.3.47.20', port='10000')
+    redisClient.hmset(bkey, {'test': 'test'})
+    print(redisClient.hgetall(key))
+    redisClient.delete(bkey)
+
 if __name__ == "__main__":
     # writeData()
-    redData()
+    # redData()
     # __clean__()
+    __test__()

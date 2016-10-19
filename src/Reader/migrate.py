@@ -67,6 +67,7 @@ class MigrateClass(object):
                 print('失败')
                 print(key)
                 print(datas[key])
+                continue
             index += 1
         print(str(index) + '条写入数据《＝' + self.__filePath__ + '/' + self.__setKey__ + '.xml')
 
