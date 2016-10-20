@@ -50,8 +50,7 @@ order2 = MC(filePath=__filePath,
             redisPort=__redisPort,
             redisPassword=__password)
 
-actions = [order1, order2]
+writeActions = [collect, sorting, order1, order2]
 
 if __name__ == '__main__':
-    for i in range(len(actions)):
-        actions[i].writeData()
+    print('testttttt')

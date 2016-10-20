@@ -44,8 +44,21 @@ order2 = MC(filePath=__filePath,
             redisHost=__redisHost,
             redisPort=__redisPort)
 
-actions = [collect, sorting, order1, order2]
+readActions = [collect, sorting, order1, order2]
 
 if __name__ == '__main__':
-    for i in range(len(actions)):
-        actions[i].redData()
+    print('test')
+    # for i in range(len(readActions)):
+    #     readActions[i].redData()
+    # orderTEST = MC(filePath=__filePath,
+    #             setKey='TESTDATA_EYES',
+    #             mapKeys=['ProcessStandardsAction_limitType',
+    #                      'ProcessStandardsAction_limitId',
+    #                      'ProcessStandardsAction_startTime',
+    #                      'ProcessStandardsAction_warnTime',
+    #                      'ProcessStandardsAction_limitEndTime',
+    #                      'ProcessStandardsAction_data'],
+    #             redisHost=__redisHost,
+    #             redisPort=__redisPort)
+    # orderTEST.writeData()
+    # orderTEST.redData()
