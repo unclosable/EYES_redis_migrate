@@ -1,7 +1,7 @@
 import sys
 from Reader.ReadActions import readActions as READ
 from Reader.WriteActions import writeActions as WRITE
-from Reader.TestActions import testAction
+from Reader.FinalTest import testAction
 
 if __name__ == '__main__':
     if len(sys.argv) > 1:

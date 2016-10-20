@@ -2,7 +2,7 @@ import redis
 
 
 def testAction():
-    rc = redis.Redis(host='10.3.47.20', port='10000', password='')
+    rc = redis.Redis(host='redis.rfddc.com', port='8003', password='redis_001_004')
     print('eyes_collect')
     print(rc.scard('eyes_collect'))
     print('EYES_UnStepedSortingOrderSet_')
@@ -13,4 +13,5 @@ def testAction():
     print(rc.scard('EYES_unfinished_ProcessStandardsActionSetKey_kUQ1wcxnvoMoaFJN'))
 
 if __name__=='__main__':
+    print('TEST RUN')
     testAction()
