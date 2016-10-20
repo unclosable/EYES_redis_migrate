@@ -1,6 +1,7 @@
 import sys
 from Reader.ReadActions import readActions as READ
 from Reader.WriteActions import writeActions as WRITE
+from Reader.CleanAction import clean
 from Reader.FinalTest import testAction
 
 if __name__ == '__main__':
@@ -14,6 +15,8 @@ if __name__ == '__main__':
                 WRITE[i].writeData()
         elif actType == 'TEST':
             testAction()
+        elif actType == 'CLEAN':
+            clean()
         else:
             print('非法参数' + actType)
     else:
