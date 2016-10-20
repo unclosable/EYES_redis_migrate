@@ -21,10 +21,10 @@ def __clean__(key):
     pool = ThreadPool(processes=10)
     print(key + ':::' + str(len(set)) + '条数据将清除')
     for mapkey in set:
-        pool.apply(__deletekey__, (redisClient, mapkey))
-        # redisClient.delete(key)
-    # redisClient.delete(__setKey)
-    pool.apply(__deletekey__, (redisClient, key))
+        pool.apply_async(__deletekey__, (redisClient, mapkey))
+    pool.apply_async(__deletekey__, (redisClient, key))
+    pool.close()
+    pool.join()
     print(key + ':::' + str(len(set)) + '条数据已清除')
 
 
