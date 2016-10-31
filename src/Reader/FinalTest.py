@@ -12,6 +12,7 @@ def testAction():
     print('EYES_unfinished_ProcessStandardsActionSetKey_kUQ1wcxnvoMoaFJN')
     print(rc.scard('EYES_unfinished_ProcessStandardsActionSetKey_kUQ1wcxnvoMoaFJN'))
 
-if __name__=='__main__':
+
+if __name__ == '__main__':
     print('TEST RUN')
     testAction()
