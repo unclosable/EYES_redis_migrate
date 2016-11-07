@@ -1,6 +1,6 @@
 import redis
 
-__redisPool__ = redis.ConnectionPool(host='10.3.47.20', port='10000')
+__redisPool__ = redis.ConnectionPool(host='10.3.47.62', port='6379')
 __rc__ = redis.Redis(connection_pool=__redisPool__)
 
 types = {"Site_TakeOverOrder": "揽件时效",
@@ -16,22 +16,23 @@ if __name__ == '__main__':
     print('__________________________')
     print('         总计数器          ')
     map = __rc__.hgetall('EYES_TOTLE_ORDERACTION_COUNTER_MAPKEY_1063YE4LJJA5S3UM')
+    print(map)
     for key in map:
-        print(types[key.decode()] + ':' + map[key].decode())
-    print('__________________________')
-    print('           校验            ')
-    limitKeyList = __rc__.smembers('EYES_LIMIT_COUNTER_SETKEY_EqOH6SQD3OX12efd')
-    for limitKey in limitKeyList:
-        print('LIMIT_KEY:' + limitKey.decode())
-        limitMap = __rc__.hgetall(limitKey)
-        for limitMapKey in limitMap:
-            print('     ' + limitMapKey.decode() + ':' + limitMap[limitMapKey].decode())
-    print('__________________________')
-    print('         省缺校验          ')
-    for key in types:
-        defaltMap = __rc__.hgetall('EYES_LIMIT_DEFAULT_COUNTER_MAPKEY_' + key)
-        if defaltMap != {}:
-            print(types[key])
-        for deKey in defaltMap:
-            print('     '+deKey.decode() + ':' + defaltMap[deKey].decode())
-    print('__________________________')
+        print(key.decode() + ':' + map[key].decode())
+    # print('__________________________')
+    # print('           校验            ')
+    # limitKeyList = __rc__.smembers('EYES_LIMIT_COUNTER_SETKEY_EqOH6SQD3OX12efd')
+    # for limitKey in limitKeyList:
+    #     print('LIMIT_KEY:' + limitKey.decode())
+    #     limitMap = __rc__.hgetall(limitKey)
+    #     for limitMapKey in limitMap:
+    #         print('     ' + limitMapKey.decode() + ':' + limitMap[limitMapKey].decode())
+    # print('__________________________')
+    # print('         省缺校验          ')
+    # for key in types:
+    #     defaltMap = __rc__.hgetall('EYES_LIMIT_DEFAULT_COUNTER_MAPKEY_' + key)
+    #     if defaltMap != {}:
+    #         print(types[key])
+    #     for deKey in defaltMap:
+    #         print('     '+deKey.decode() + ':' + defaltMap[deKey].decode())
+    # print('__________________________')
