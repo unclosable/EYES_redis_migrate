@@ -14,14 +14,6 @@ types = {"Site_TakeOverOrder": "揽件时效",
          "Transport_PartyBetweenCity": "三方城际运输"}
 
 if __name__ == '__main__':
-    print('__________________________')
-    print('         总计数器          ')
-    map = __rc__.hgetall('EYES_TOTLE_ORDERACTION_COUNTER_MAPKEY_1063YE4LJJA5S3UM')
-    for key in map:
-        # print(types[key.decode()] + ':' + map[key].decode())
-        print(key.decode() + ':' + map[key].decode())
-    print('__________________________')
-    print('           校验            ')
     limitKeyList = __rc__.smembers('EYES_LIMIT_COUNTER_SETKEY_EqOH6SQD3OX12efd')
     for limitKey in limitKeyList:
         print('LIMIT_KEY:' + limitKey.decode())
